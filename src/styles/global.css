@@ -191,6 +191,10 @@ main {
   box-shadow: 0 20px 38px rgba(37, 99, 235, 0.2);
 }
 
+.tool-card:active {
+  transform: translateY(-2px) scale(1);
+}
+
 .tool-card:hover::after,
 .tool-card:focus-visible::after {
   opacity: 1;
@@ -242,6 +246,10 @@ main {
 
 .btn:hover {
   transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
 }
 
 .btn:focus-visible {
@@ -351,6 +359,7 @@ main {
   background: #fff;
   border-radius: 999px;
   padding: 0.18rem 0.5rem;
+  transition: all 0.2s ease;
 }
 
 .workflow-step.complete {
@@ -360,6 +369,11 @@ main {
 .workflow-step.active {
   color: #1d4ed8;
   font-weight: 600;
+}
+
+.workflow-step:hover {
+  border-color: #93c5fd;
+  transform: translateY(-1px);
 }
 
 .workflow-dot {
@@ -413,6 +427,14 @@ main {
   border-radius: 10px;
   padding: 0.6rem 0.7rem;
   font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.setting-group input:focus-visible {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  background: #fff;
 }
 
 .setting-group input[type='range'] {
@@ -463,6 +485,12 @@ main {
   cursor: pointer;
   background: linear-gradient(180deg, #fafdff, #f3f8ff);
   transition: all 0.25s ease;
+}
+
+.drop-zone:hover {
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 22px rgba(37, 99, 235, 0.12);
 }
 
 .drop-zone.active {
@@ -651,19 +679,17 @@ main {
 }
 
 .ad-slot {
-  width: min(1100px, 94%);
-  margin: 0.75rem auto;
-  border: none;
-  border-radius: 0;
-  background: transparent;
+  display: none !important;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
   min-height: 0;
-  display: block;
-  color: inherit;
-  font-weight: inherit;
+  overflow: hidden;
 }
 
 .ad-content {
-  min-height: 140px;
+  min-height: 0;
 }
 
 .site-footer {
@@ -873,7 +899,7 @@ main {
 }
 
 .ad-live {
-  min-height: 90px;
+  min-height: 0;
 }
 
 @keyframes pulse-dot {
