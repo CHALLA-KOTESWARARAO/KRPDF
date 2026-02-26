@@ -32,6 +32,7 @@ function SplitPdfPage() {
       faq={faq}
       seoContent={seoContent}
       keywords="split pdf, extract pdf pages, separate pdf"
+      mode="split"
     />
   );
 }

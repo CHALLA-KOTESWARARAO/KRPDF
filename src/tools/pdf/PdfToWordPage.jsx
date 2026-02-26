@@ -32,6 +32,7 @@ function PdfToWordPage() {
       faq={faq}
       seoContent={seoContent}
       keywords="pdf to word, convert pdf to docx, editable word document"
+      mode="convert"
     />
   );
 }

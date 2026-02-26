@@ -17,7 +17,7 @@ export function loadImageElement(source) {
 }
 
 export async function transformImage(file, options) {
-  const { type, quality = 0.85, width, height } = options;
+  const { type, quality = 0.85, width, height, maxSizeKb } = options;
   const src = await readFileAsDataUrl(file);
   const image = await loadImageElement(src);
 
@@ -31,12 +31,29 @@ export async function transformImage(file, options) {
   const ctx = canvas.getContext('2d', { alpha: type === 'image/png' });
   ctx.drawImage(image, 0, 0, targetWidth, targetHeight);
 
-  const output = canvas.toDataURL(type, quality);
+  let qualityUsed = quality;
+  let output = canvas.toDataURL(type, qualityUsed);
+
+  // Iteratively reduce quality for lossy outputs if a max file size is requested.
+  if (maxSizeKb && type !== 'image/png') {
+    const maxBytes = maxSizeKb * 1024;
+    let outputBytes = Math.round((output.length * 3) / 4);
+    while (outputBytes > maxBytes && qualityUsed > 0.25) {
+      qualityUsed = Number((qualityUsed - 0.05).toFixed(2));
+      output = canvas.toDataURL(type, qualityUsed);
+      outputBytes = Math.round((output.length * 3) / 4);
+    }
+  }
+
+  const outputSizeBytes = Math.round((output.length * 3) / 4);
   return {
     before: src,
     after: output,
     width: targetWidth,
-    height: targetHeight
+    height: targetHeight,
+    qualityUsed,
+    beforeSizeBytes: file.size,
+    afterSizeBytes: outputSizeBytes
   };
 }
 

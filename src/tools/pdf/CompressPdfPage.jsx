@@ -32,6 +32,7 @@ function CompressPdfPage() {
       faq={faq}
       seoContent={seoContent}
       keywords="compress pdf, reduce pdf size, shrink pdf online"
+      mode="compress"
     />
   );
 }

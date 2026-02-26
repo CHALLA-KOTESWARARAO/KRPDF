@@ -23,7 +23,6 @@ function ImageTools() {
               title={tool.title}
               description={tool.description}
               icon={<svg viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" strokeWidth="1.7"/><path d="M6 16l4-4 4 4 4-3" fill="none" stroke="currentColor" strokeWidth="1.7"/></svg>}
-              cta="Use Tool"
             />
           ))}
         </section>

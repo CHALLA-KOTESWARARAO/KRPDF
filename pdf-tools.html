@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Tools Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./pdf-tools.css" />
+</head>
+<body>
+  <main class="dashboard">
+    <header class="dashboard-header">
+      <h1>PDF Tools</h1>
+      <p>Fast, polished tools for everyday document workflows.</p>
+    </header>
+
+    <section class="tools-grid" aria-label="PDF Tools">
+      <button class="tool-card" type="button" data-tool="PDF to Word" data-desc="Convert PDF files into editable Word documents.">
+        <span class="tool-icon-wrap"><span class="tool-icon">W</span></span>
+        <h2>PDF to Word</h2>
+        <p>Convert PDFs into editable DOCX files.</p>
+      </button>
+
+      <button class="tool-card" type="button" data-tool="Merge PDF" data-desc="Combine multiple PDFs into one single document.">
+        <span class="tool-icon-wrap"><span class="tool-icon">M</span></span>
+        <h2>Merge PDF</h2>
+        <p>Join multiple PDFs into one file.</p>
+      </button>
+
+      <button class="tool-card" type="button" data-tool="Compress PDF" data-desc="Reduce PDF file size while preserving quality.">
+        <span class="tool-icon-wrap"><span class="tool-icon">C</span></span>
+        <h2>Compress PDF</h2>
+        <p>Shrink file size for sharing and upload.</p>
+      </button>
+
+      <button class="tool-card" type="button" data-tool="Split PDF" data-desc="Extract specific pages or split by ranges.">
+        <span class="tool-icon-wrap"><span class="tool-icon">S</span></span>
+        <h2>Split PDF</h2>
+        <p>Separate pages into new PDF files.</p>
+      </button>
+    </section>
+  </main>
+
+  <div class="modal-overlay" id="toolModal" aria-hidden="true">
+    <section class="tool-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close dialog">x</button>
+
+      <div class="modal-loading" id="modalLoading" aria-live="polite">
+        <span class="spinner" aria-hidden="true"></span>
+        <p>Loading tool...</p>
+      </div>
+
+      <div class="modal-content hidden" id="modalContent">
+        <h3 id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
+
+        <label class="upload-zone" id="uploadZone">
+          <input id="fileInput" type="file" accept=".pdf" multiple />
+          <div class="upload-icon">^</div>
+          <h4>Drag &amp; drop PDF files here</h4>
+          <p>or click to browse</p>
+          <small id="fileLabel">No files selected</small>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <script src="./pdf-tools.js" defer></script>
+</body>
+</html>

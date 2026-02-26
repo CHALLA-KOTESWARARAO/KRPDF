@@ -13,6 +13,7 @@ function ImageResizePage() {
       defaultHeight="720"
       buttonLabel="Resize Image"
       outputName="resized-image.jpg"
+      allowQualityControl
     />
   );
 }

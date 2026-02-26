@@ -23,7 +23,6 @@ function PdfTools() {
               title={tool.title}
               description={tool.description}
               icon={<svg viewBox="0 0 24 24" width="24" height="24"><path d="M6 3h9l5 5v13H6z" fill="none" stroke="currentColor" strokeWidth="1.7"/><path d="M15 3v5h5" fill="none" stroke="currentColor" strokeWidth="1.7"/></svg>}
-              cta="Use Tool"
             />
           ))}
         </section>

@@ -30,13 +30,7 @@ function AdPlaceholder({ type = 'content' }) {
     footer: 'Footer Ad'
   };
 
-  if (!isAdSenseEnabled() || !slot) {
-    return (
-      <aside className={`ad-slot ad-${type}`} aria-label={`${labels[type]} placeholder`}>
-        <p>{labels[type]} Placeholder</p>
-      </aside>
-    );
-  }
+  if (!isAdSenseEnabled() || !slot) return null;
 
   return (
     <aside className={`ad-slot ad-${type}`} aria-label={labels[type]}>

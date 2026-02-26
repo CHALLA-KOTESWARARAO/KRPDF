@@ -33,6 +33,7 @@ function MergePdfPage() {
       faq={faq}
       seoContent={seoContent}
       keywords="merge pdf, combine pdf files, join pdf online"
+      mode="merge"
     />
   );
 }

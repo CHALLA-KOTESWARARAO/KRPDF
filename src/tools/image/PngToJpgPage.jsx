@@ -10,6 +10,7 @@ function PngToJpgPage() {
       quality={0.9}
       buttonLabel="Convert to JPG"
       outputName="converted-image.jpg"
+      allowQualityControl
     />
   );
 }
